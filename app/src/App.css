@@ -1,0 +1,383 @@
+html , body , #root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.loadingDiv {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 123;
+  left: 0;
+  top: 0;
+}
+
+.loadingDiv p {
+  width: 200px;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+  color: #333;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 250px;
+  margin: auto;
+}
+
+.App {
+  width: 1200px;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  border-left:1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.menu {
+  width: 229px;
+  height: 100%;
+  background-color: rgb(249,250,251);
+  border-right: 1px solid rgb(249,250,251);
+  float: left;
+  position: relative;
+}
+
+.detail {
+  width: 970px;
+  height: 100%;
+  float: left;
+}
+
+.pageContent {
+  width: 100%;
+  height: 100%;
+}
+
+.list {
+  width: 279px;
+  height: 100%;
+  background-color: white;
+  border-right: 1px solid #ddd;
+  float: left;
+  display:block; 
+  overflow-y: auto;
+}
+
+.list::-webkit-scrollbar { width:5px; background:#ccc; border-radius:10px;}
+
+.list-detail {
+  width: 690px;
+  height: 100%;
+  background-color: white;
+  float: left;
+}
+
+.list-detail2 {
+  width: 970px;
+  height: 100%;
+  background-color: white;
+  float: left;
+}
+
+.menuList {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 23px;
+}
+
+.menuList li {
+  display: table;
+  margin-bottom: 13px;
+  margin-left: 45px;
+  cursor: pointer;
+}
+
+.menuList li .im {
+  width: 20px;
+  display: block;
+  float: left;
+  margin-top: 2px;
+}
+
+.menuList li .txt {
+  display: block;
+  float: left;
+  margin-left: 12px;
+  font-size: 16px;
+}
+
+.btn-addDoc {
+  width: 130px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #5b89fe;
+  color: white;
+  margin: 0 auto;
+  border: 0;
+  display: block;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.inputSearch {
+  width: 80%;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  margin: 25px auto;
+  display: block;
+  padding-left: 15px;
+}
+
+.searchList {
+  list-style: none;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  margin: 0 auto;
+  display: block;
+  overflow-y: auto;
+}
+
+.searchList li {
+  border-bottom: 1px solid #ddd;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 27px;
+  height: 107px;
+  position: relative;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.searchList li.active {
+  background-color: rgb(249 250 251);
+}
+
+.searchList li.nodata {
+  border-bottom:0;
+  text-align: center;
+}
+
+.searchList li .title {
+  width: 100%;
+  font-size: 15px;
+  color: #333;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.searchList li p {
+  margin: 0;
+}
+
+.searchList li .desc {
+  width: 100%;
+  font-size: 14px;
+  color: #666;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+  margin-top:13px; 
+  line-height: 20px;
+}
+
+.searchList li .date {
+  font-size: 13px;
+  color: #777;
+  margin-top:13px; 
+}
+
+.searchList li .im {
+  width: 20px;
+  position: absolute;
+  left: 0;
+  top: 15px;
+}
+
+.list-detail .title , .list-detail2 .title {
+  width: 100%;
+  height: 78px;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+
+.titleInput {
+  width: 50%;
+  height: 28px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-align: left;
+  font-family: inherit;
+  display: inline-block;
+  border: 0;
+  margin-left: 25px;
+  margin-top: 19px;
+  font-size: 20px;
+  outline: none;
+  color:#333;
+  background-color: inherit;
+}
+
+.btn-saveData {
+  width: 58px;
+  height: 28px;
+  font-size: 12px;
+  background-color: #f0f3f5;
+  color: #333;
+  position: absolute;
+  top: 20px;
+  right: 170px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-recoverData {
+  width: 58px;
+  height: 28px;
+  font-size: 12px;
+  background-color: #f0f3f5;
+  color: #333;
+  position: absolute;
+  top: 20px;
+  right: 170px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-delData2 {
+  width: 58px;
+  height: 28px;
+  font-size: 12px;
+  background-color: #f91111;
+  color: white;
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-delData {
+  width: 58px;
+  height: 28px;
+  font-size: 12px;
+  background-color: #f91111;
+  color: white;
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.editor {
+  width: 100%;
+}
+
+#editor {
+  border: 0 !important;
+}
+
+.ql-toolbar {
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-top: 0 !important;
+}
+
+.editor .ql-toolbar:FIRST-CHILD {
+  display: none !important;
+}
+
+.menu .details {
+  width: 100%;
+  display: block;
+  margin-top:20px; 
+}
+
+.menu .details .profilePic {
+  width: 75px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.menu .profile {
+  width: 100%;
+  margin-top:6px; 
+}
+
+.menu .profile .who {
+  width: 100%;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+}
+
+.menu .profile .accWhen {
+  width: 100%;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+}
+
+.editorContent {
+  width: 100%;
+  overflow-y:auto; 
+}
+
+.loginPage {
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  background:url("./images/xingkong.jpg"); 
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.btn-connectWallet {
+  padding: 11px 21px;
+  border: 0;
+  color:#333;
+  font-size: 17px;
+  border-radius: 5px;
+  background-color: #5b89fe;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-logout {
+  width: 100px;
+  height: 34px;
+  border-radius: 4px;
+  background-color:white;
+  color: #333;
+  border: 1px solid #ddd;
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  bottom:33px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#editorContent0 input {
+  display: none;
+}
