@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect,useState } from "react";
-
+import Loading from "../images/loding.gif";
 import "quill/dist/quill.snow.css";
 import Quill from 'quill/dist/quill.min.js';
 import { useMoralis,useWeb3ExecuteFunction } from 'react-moralis';
@@ -307,7 +307,9 @@ const Editorlistdetail = (noteData) => {
     <div>
       {loading ?
         <div className="loadingDiv">
-          <p className='mx-3 my-0'>Awaiting...</p>
+          <p className='mx-3 my-0'>
+            <img src={Loading} />
+          </p>
         </div>
         :
         ""
