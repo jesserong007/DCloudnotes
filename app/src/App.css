@@ -298,10 +298,6 @@ html , body , #root {
   border-top: 0 !important;
 }
 
-.editor .ql-toolbar:FIRST-CHILD {
-  display: none !important;
-}
-
 .menu .details {
   width: 100%;
   display: block;
