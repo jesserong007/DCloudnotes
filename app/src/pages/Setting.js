@@ -30,7 +30,7 @@ const Setting = () => {
 
     await myDetails.save();
     alert("Save successful !");
-    fetchNFTs();
+    window.location.href = "/";
   }
 
   const fetchNFTs = async () => {

@@ -57,7 +57,9 @@ const Listdetail = (noteData) => {
           note.save().then(
             (notes) => {
               alert('Recover successful !');
-              window.location.reload();
+              setDefaultTitle('');
+              document.getElementById('editorContent0').innerHTML = '';
+              noteData.getList('');
             },
             (error) => {
               console.log(error.message);
@@ -75,7 +77,7 @@ const Listdetail = (noteData) => {
   const delData = () => {
     if(!noteId) return;
 
-    let b = window.confirm("Confirm to delete the note ?");
+    let b = window.confirm("Deleted and cannot be restored , confirm to delete the note ?");
 
     if(!b) return;
 
@@ -88,7 +90,9 @@ const Listdetail = (noteData) => {
           note.destroy().then(
             (myObject) => {
               alert("Delete successful !");
-              window.location.href = "/recycleBin";
+              setDefaultTitle('');
+              document.getElementById('editorContent0').innerHTML = '';
+              noteData.getList('');
             },
             (error) => {
               console.log(error);

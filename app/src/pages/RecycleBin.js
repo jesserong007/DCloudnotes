@@ -94,7 +94,7 @@ const RecycleBin = () => {
           }
         </div>
         <div className="list-detail">
-          <Listdetail noteId={noteId} />
+          <Listdetail noteId={noteId} getList={getList} />
         </div>
     </div>
   );

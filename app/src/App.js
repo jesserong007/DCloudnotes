@@ -14,12 +14,12 @@ function App() {
 
   const connectWallet = async () => {
     await Moralis.authenticate();
-    window.location.reload();
+    window.location.href = "/";
   }
 
   const logout = () => {
     Moralis.User.logOut().then(() => {
-      window.location.reload();
+      window.location.href = "/";
     })
   }
 
