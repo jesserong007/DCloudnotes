@@ -29,40 +29,43 @@ const Setting = () => {
     }
 
     await myDetails.save();
-    window.location.reload();
+    alert("Save successful !");
+    fetchNFTs();
+  }
+
+  const fetchNFTs = async () => {
+    const options = {
+      chain:"mumbai",
+      address:user.attributes.ethAddress
+    }
+    
+    const mumbaiNFTs = await Web3Api.account.getNFTs(options);
+
+    let images = [];
+
+    for (let i = 0; i < mumbaiNFTs.result.length ; i++) {
+      if(mumbaiNFTs.result[i]) {
+        let metadata = JSON.parse(mumbaiNFTs.result[i].metadata);
+
+        if(metadata && metadata.imageUri) {
+          let link = resolveLink(metadata.imageUri);
+          images.push(link);
+        }
+      }
+    }
+    
+    images.push(pfp1);
+    images.push(pfp2);
+    images.push(pfp3);
+    images.push(pfp4);
+    images.push(pfp5);
+    setPfps(images);
+    setUsername(user.attributes.username);
+    setSelectedPFP(user.attributes.pfp);
   }
 
   useEffect(() => {
-    const fetchNFTs = async () => {
-      const options = {
-        chain:"mumbai",
-        address:user.attributes.ethAddress
-      }
-      
-      const mumbaiNFTs = await Web3Api.account.getNFTs(options);
-
-      let images = [];
-
-      for (let i = 0; i < mumbaiNFTs.result.length ; i++) {
-        if(mumbaiNFTs.result[i]) {
-          let metadata = JSON.parse(mumbaiNFTs.result[i].metadata);
-
-          if(metadata && metadata.imageUri) {
-            let link = resolveLink(metadata.imageUri);
-            images.push(link);
-          }
-        }
-      }
-      
-      images.push(pfp1);
-      images.push(pfp2);
-      images.push(pfp3);
-      images.push(pfp4);
-      images.push(pfp5);
-      setPfps(images);
-      setUsername(user.attributes.username);
-      setSelectedPFP(user.attributes.pfp);
-    }
+    
     fetchNFTs();
   },[]);
 
