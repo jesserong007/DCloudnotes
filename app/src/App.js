@@ -1,6 +1,6 @@
 import './App.css';
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useEffect,useState } from "react";
 import Sidebar from './components/Sidebar';
 import MyNotes from './pages/MyNotes';
@@ -28,7 +28,7 @@ function App() {
   },[])
 
   return (
-    <BrowserRouter>
+    <div className='appContent'>
       {isAuthenticated ? (
         <div className="App">
           <div className="menu">
@@ -50,7 +50,7 @@ function App() {
           <button type='button' className="btn-connectWallet" onClick={connectWallet}>Connect Wallet</button>
         </div>
       )}
-    </BrowserRouter>
+    </div>
   );
 }
 
