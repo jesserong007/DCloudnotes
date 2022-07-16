@@ -2,6 +2,8 @@ require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
 require("dotenv").config();
 
+const privateKeys = process.env.PRIVATE_KEYS || "";
+
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
@@ -24,7 +26,11 @@ module.exports = {
   	mumbai: {
   		url:process.env.RPC_URL,
   		accounts:[process.env.PRIVATE_KEY]
-  	}
+  	},
+    kovan: {
+      url: `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      accounts: privateKeys.split(',')
+    }
   },
   etherscan: {
     apiKey:process.env.ETHERSCAN_API_KEY

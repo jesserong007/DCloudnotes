@@ -6,7 +6,7 @@ import Quill from 'quill/dist/quill.min.js';
 import { useMoralis,useWeb3ExecuteFunction } from 'react-moralis';
 import UserNotes from '../contractABIs/UserNotes.json';
 
-const contractAddress = "0x0c0789CBB453Bca1e67A899f2643aec2E5E25d8D";
+const contractAddress = "0xe61365Ac31A3E342375265f00C9c6A9ceA90514C";
 
 const Editorlistdetail = (noteData) => {
   const [editor, setEditor] = useState(null);
