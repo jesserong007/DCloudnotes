@@ -2,7 +2,42 @@
 
 #### 介绍
 
-DCloudnotes是一个去中心化云笔记应用。用户可将自己的笔记内容上传到ipfs，然后通过编写智能合约把ipfs地址保存到Ploygon区块链（mumbai测试网络）和moralis的数据库中，便于用户根据ipfs地址获取到自己上传的笔记内容。笔记内容是一个富文本，用户除了编写文字，也可以上传图片，然后把所有的内容构造成一个json格式的文件，上传到ipfs网络。
+DCloudnotes是一个去中心化云笔记应用。用户可以把自己的笔记内容上传到ipfs，用户只需要花费少量的eth就可以把ipfs地址保存到以太坊区块链中（kovan测试网络），同时也保存到moralis的数据库中，便于用户可根据ipfs地址快速获取自己上传的笔记内容。笔记内容是一个富文本，用户除了编写文字，也可以上传图片，然后把笔记的内容构造成一个json格式的文件，上传到ipfs分布式存储网络。
+
+#### 目的
+
+传统的云笔记应用是把用户的笔记内容保存到中心化的数据库，而数据库是由某个公司管理，用户不能自己掌握自己的数据。而DCloudnotes是一个去中心化云笔记应用，用户可将自己的笔记内容保存到ipfs分布式存储中，然后把ipfs地址记录到以太坊区块链网络中，让用户数据更安全，可以永久保存，不可篡改，解决了传统的云笔记应用存在的问题。
+
+#### 展示
+
+链接：https://hidden-sunset-4510.on.fleek.co/ （ 代码已部署到fleek的ipfs上 ）
+
+1. 登录页面，用户连接MetaMask钱包即可登录。
+
+<img src="https://bafybeicrnde7iqnggysy5dftko7mnjefwsp3uynltc765kf33naogpph24.ipfs.dweb.link/1657963028670.jpg" style="width:100%;" />
+
+<img src="https://bafybeibxawac5ogn4xwqiccqs5t2eckss66gpzz5sidl35iprhkdncsizq.ipfs.dweb.link/1657963300687.jpg" style="width:100%;" />
+
+2. 在首页，可查看自己的笔记列表，和查看笔记的内容详情，也可对笔记内容进行修改更新，也可以删除笔记。
+
+<img src="https://bafybeib6devnbdrprgp5fm5552o76od5rup4leaxybgdo7yzlikwaathwq.ipfs.dweb.link/1657965129967.jpg" style="width:100%;" />
+
+<img src="https://bafybeiheeikmcc7mp5zbzqcacctklgcbpxz6hs6vzn6j4ecxfnusqmydqi.ipfs.dweb.link/1657965292255.jpg" style="width:100%;" />
+
+<img src="https://bafybeicgf43kvvzazcmplkgbahbwqi5d3pgngb3ifqukvzkx2blu2qptsy.ipfs.dweb.link/1657965336735.jpg" style="width:100%;" />
+
+3. 在添加页面，用户可以添加笔记。
+
+<img src="https://bafybeidaip54r7jah25uc6xclaojajyme3km6lbvw466o3crf3o74ygwo4.ipfs.dweb.link/1657963656927.jpg" style="width:100%;" />
+
+4. 回收站页面，用户可查看已删除的笔记和笔记的详情，也可恢复笔记到自己的笔记列表，也可把笔记彻底删除。
+
+<img src="https://bafybeibckzw5bn2zgqvjr4oxdorunv5k5ie2uc6uxgkxn4jl7crdwhikmq.ipfs.dweb.link/1657965454597.jpg" style="width:100%;" />
+
+5. 在个人页面，用户可修改自己的用户名，用户也可用自己的NFT作为自己的头像。
+
+<img src="https://bafybeigu665b5cd2gksduh54r4el4ajsyrscrrovw2wshssxsa4v6z5wfq.ipfs.dweb.link/1657965543569.jpg" style="width:100%;" />
+
 
 #### 技术堆栈和工具
 
@@ -30,15 +65,19 @@ DCloudnotes是一个去中心化云笔记应用。用户可将自己的笔记内
 	npm install  
 	cd app & npm install
 
-3. 部署合约: 
-	
-	npx hardhat run ./scripts/deploy.js --network mumbai (部署到Ploygon测试网络)
-
-4. 测试合约:
+3. 测试合约:
 	
 	npx hardhat test
 
-5. 运行
+4. 编译合约:
+	
+	npx hardhat compile
+
+5. 部署合约: 
+	
+	npx hardhat run ./scripts/deploy.js --network kovan (部署到kovan测试网络)
+
+6. 运行应用
 	
 	cd app & npm run start
 

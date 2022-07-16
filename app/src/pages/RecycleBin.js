@@ -46,6 +46,8 @@ const RecycleBin = () => {
 
       if(results.length > 0) {
         setNoteId(results[results.length - 1].id);
+      } else {
+        setNoteId("");
       }
 
       setLoading(false);
