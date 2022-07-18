@@ -53,7 +53,7 @@ const Editorlistdetail = (noteData) => {
     setEditor(editorObj);
 
     let wheight = document.body.clientHeight;
-    let editorHeight = wheight - 146;
+    let editorHeight = wheight - 147;
     document.getElementById("editor").style.height = editorHeight + 'px';
   }
 

@@ -10,13 +10,13 @@ describe("User", function () {
         await user.deployed();
 
         const account = await ethers.getSigner();
-
+       
         const _username = "jesse";
-        const _pfp = "http://www.baodu.com";
+        const _pfp = "http://www.baidu.com";
         await user.connect(account).bangUserInfo(_username,_pfp,{value:price});
-        //const userData = await user.connect(account).accounts[account];
-        //console.log(userData);
+        const userData = await user.connect(account).accounts(account.address);
+        console.log(userData);
         // assert
-        expect(_username).to.be.equal('jesse');
+        expect(userData.username).to.be.equal(_username);
     });
 });

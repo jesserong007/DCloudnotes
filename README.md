@@ -10,15 +10,19 @@ DCloudnotes是一个去中心化云笔记应用。用户可以把自己的笔记
 
 #### 展示
 
-链接：https://hidden-sunset-4510.on.fleek.co/ （ 代码已部署到fleek的ipfs上 ）
+链接： https://hidden-sunset-4510.on.fleek.co/ （ 代码已部署到fleek的ipfs上 ）
 
-1. 登录页面，用户连接MetaMask钱包即可登录。
+
+1. 登录页面，用户连接MetaMask钱包即可登录。在首页中，笔记列表是从数据库中获取的，笔记的详情是读取ipfs地址的json数据来获取的。
+
 
 <img src="https://bafybeicrnde7iqnggysy5dftko7mnjefwsp3uynltc765kf33naogpph24.ipfs.dweb.link/1657963028670.jpg" style="width:100%;" />
 
 <img src="https://bafybeibxawac5ogn4xwqiccqs5t2eckss66gpzz5sidl35iprhkdncsizq.ipfs.dweb.link/1657963300687.jpg" style="width:100%;" />
 
-2. 在首页，可查看自己的笔记列表，和查看笔记的内容详情，也可对笔记内容进行修改更新，也可以删除笔记。
+
+2. 在首页，可查看自己的笔记列表，和查看笔记的内容详情，也可对笔记内容进行修改更新，也可以删除笔记。更新笔记时，将新的笔记内容以json数据格式上传到ipfs，生成新的ipfs地址
+
 
 <img src="https://bafybeib6devnbdrprgp5fm5552o76od5rup4leaxybgdo7yzlikwaathwq.ipfs.dweb.link/1657965129967.jpg" style="width:100%;" />
 
@@ -26,17 +30,24 @@ DCloudnotes是一个去中心化云笔记应用。用户可以把自己的笔记
 
 <img src="https://bafybeicgf43kvvzazcmplkgbahbwqi5d3pgngb3ifqukvzkx2blu2qptsy.ipfs.dweb.link/1657965336735.jpg" style="width:100%;" />
 
-3. 在添加页面，用户可以添加笔记。
+
+3. 在添加页面，用户可以添加笔记，笔记内容将以json数据格式上传到ipfs。
+
 
 <img src="https://bafybeidaip54r7jah25uc6xclaojajyme3km6lbvw466o3crf3o74ygwo4.ipfs.dweb.link/1657963656927.jpg" style="width:100%;" />
 
+
 4. 回收站页面，用户可查看已删除的笔记和笔记的详情，也可恢复笔记到自己的笔记列表，也可把笔记彻底删除。
+
 
 <img src="https://bafybeibckzw5bn2zgqvjr4oxdorunv5k5ie2uc6uxgkxn4jl7crdwhikmq.ipfs.dweb.link/1657965454597.jpg" style="width:100%;" />
 
+
 5. 在个人页面，用户可修改自己的用户名，用户也可用自己的NFT作为自己的头像。
 
+
 <img src="https://bafybeigu665b5cd2gksduh54r4el4ajsyrscrrovw2wshssxsa4v6z5wfq.ipfs.dweb.link/1657965543569.jpg" style="width:100%;" />
+
 
 
 #### 技术堆栈和工具
@@ -49,7 +60,7 @@ DCloudnotes是一个去中心化云笔记应用。用户可以把自己的笔记
 6. Quill - 富文本编辑器
 
 
-#### 安装教程
+#### 安装
 
 1. 安装 NodeJS
 2. 安装 Hardhat

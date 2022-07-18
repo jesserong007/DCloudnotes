@@ -13,6 +13,7 @@ const RecycleBin = () => {
 
   const getList = async (keyword) => {
     setLoading(true);
+    setNoteId("");
 
     try {
       const Notes  = Moralis.Object.extend("Notes");
