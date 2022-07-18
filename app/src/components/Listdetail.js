@@ -1,17 +1,21 @@
 import React from "react";
 import { useEffect,useState } from "react";
 import { useMoralis,useWeb3ExecuteFunction } from 'react-moralis';
+import Loading from "../images/loding.gif";
 
 const Listdetail = (noteData) => {
   const [defaultTitle,setDefaultTitle] = useState("");
   const [content,setContent] = useState("");
   const [noteId,setNoteId] = useState("");
+  const [loading,setLoading] = useState(false);
   const { Moralis } = useMoralis();
   const user = Moralis.User.current();
 
   // 获取笔记
   const getNote = async (noteId) => {
     if(!noteId) return;
+
+    setLoading(true);
 
     const Notes = Moralis.Object.extend("Notes");
     const query = new Moralis.Query(Notes);
@@ -35,6 +39,8 @@ const Listdetail = (noteData) => {
             document.getElementById('editorContent0').innerHTML = '';
           }
         }
+
+        setLoading(false);
       },
       (error) => {
         console.log(error);
@@ -121,6 +127,15 @@ const Listdetail = (noteData) => {
 
   return (
     <div>
+      {loading ?
+        <div className="loadingDiv">
+          <p className='mx-3 my-0'>
+            <img src={Loading} />
+          </p>
+        </div>
+        :
+        ""
+      }
       <div className="title">
         <input type="text" className="titleInput" defaultValue={defaultTitle} disabled="disabled" />
         <button type='button' className="btn-recoverData" onClick={recoverData}>Recover</button>
