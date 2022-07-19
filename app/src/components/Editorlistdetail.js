@@ -243,10 +243,26 @@ const Editorlistdetail = (noteData) => {
 
   // 保存数据
   const saveContent = async () => {
+    setLoading(true);
+    
     const contentData = editor.getContents();
     const desc    = editor.getText(0, 60).trim().replaceAll(" ","");
     const content = contentData.ops;
     const html = document.getElementById('editor').innerHTML;
+
+    for (let i = 0; i < content.length ; i++) {
+      let img = content[i].insert.image;
+
+      if(img && img.indexOf("data:image/") != -1) {
+        let fileimg = convertBase64UrlToFile(img);
+        // 把图片上传到ipfs
+        const file = new Moralis.File(fileimg.name,fileimg);
+        await file.saveIPFS();
+        let ipfsImage = file.ipfs();
+
+        content[i].insert.image = ipfsImage;
+      }
+    }
 
     if(!title) {
       alert("Please input title!");
@@ -263,6 +279,37 @@ const Editorlistdetail = (noteData) => {
     } else {
       maticAddNote(title,desc,content,html);
     }
+  }
+
+  // 将base64图片转为文件
+  const convertBase64UrlToFile = (urlData) => {
+    const bytes = window.atob(urlData.split(',')[1]);
+
+    const ab = new ArrayBuffer(bytes.length);
+    const ia = new Uint8Array(ab);
+    for(let i = 0 ; i < bytes.length ; i++) {
+      ia[i] = bytes.charCodeAt(i);
+    }
+
+    let blob = '';
+
+    if(urlData.indexOf("data:image/png") != -1) {
+      blob = new Blob([ab],{type:'image/png'});
+    } else if(urlData.indexOf("data:image/jpeg") != -1) {
+      blob = new Blob([ab],{type:'image/jpg'});
+    } else if(urlData.indexOf("data:image/jpg") != -1) {
+      blob = new Blob([ab],{type:'image/jpg'});
+    } else if(urlData.indexOf("data:image/gif") != -1) {
+      blob = new Blob([ab],{type:'image/gif'});
+    } else {
+      blob = new Blob([ab],{type:'image/jpg'});
+    }
+
+    const myDate   = new Date();
+    const filename = Date.parse(myDate)
+    const file = new File([blob],filename);
+
+    return file;
   }
 
   // 删除数据
