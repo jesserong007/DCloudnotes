@@ -292,21 +292,27 @@ const Editorlistdetail = (noteData) => {
     }
 
     let blob = '';
+    let suffix = '';
 
     if(urlData.indexOf("data:image/png") != -1) {
       blob = new Blob([ab],{type:'image/png'});
+      suffix = ".png";
     } else if(urlData.indexOf("data:image/jpeg") != -1) {
       blob = new Blob([ab],{type:'image/jpg'});
+      suffix = ".jpg";
     } else if(urlData.indexOf("data:image/jpg") != -1) {
       blob = new Blob([ab],{type:'image/jpg'});
+      suffix = ".jpg";
     } else if(urlData.indexOf("data:image/gif") != -1) {
       blob = new Blob([ab],{type:'image/gif'});
+      suffix = ".gif";
     } else {
       blob = new Blob([ab],{type:'image/jpg'});
+      suffix = ".jpg";
     }
 
     const myDate   = new Date();
-    const filename = Date.parse(myDate)
+    const filename = Date.parse(myDate) + suffix;
     const file = new File([blob],filename);
 
     return file;
